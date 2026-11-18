@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Princess Shristi 👑</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:15px;color:#222}
+  .mbar{background:#ffde59;border:3px solid #222;box-shadow:4px 4px 0 #222;padding:6px 14px;border-radius:30px;margin-bottom:14px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:900}
+  .mbar audio{height:28px;width:190px}
+  .card{background:#fff;padding:22px 16px;border-radius:26px;border:4px solid #222;box-shadow:8px 8px 0 #222;max-width:430px;width:100%;text-align:center}
+  input.r{display:none}
+  .pg{display:none}
+  #s1:checked~.p1,#s2:checked~.p2,#s3:checked~.p3,#s4:checked~.p4,#s5:checked~.p5,#s6:checked~.p6,#s7:checked~.p7,#s8:checked~.p8,#s9:checked~.p9,#s10:checked~.p10,#s11:checked~.p11,#s12:checked~.p12{display:block}
+  .bar{height:10px;background:#eee;border:2px solid #222;border-radius:10px;margin-bottom:16px;overflow:hidden}
+  .fill{height:100%;background:#ff4b8b;transition:.3s}
+  #s1:checked~.bar .fill{width:8%}#s2:checked~.bar .fill{width:16%}#s3:checked~.bar .fill{width:25%}#s4:checked~.bar .fill{width:33%}#s5:checked~.bar .fill{width:41%}#s6:checked~.bar .fill{width:50%}#s7:checked~.bar .fill{width:58%}#s8:checked~.bar .fill{width:66%}#s9:checked~.bar .fill{width:75%}#s10:checked~.bar .fill{width:83%}#s11:checked~.bar .fill{width:91%}#s12:checked~.bar .fill{width:100%}
+  .hero{font-size:50px;margin-bottom:8px}
+  h1{color:#ff2a70;font-size:20px;margin-bottom:10px;text-shadow:1px 1px 0 #ffde59}
+  p{font-size:14px;line-height:1.5;margin-bottom:14px;font-weight:600}
+  .box{background:#fff9db;border:3px solid #222;box-shadow:4px 4px 0 #222;padding:12px;border-radius:14px;font-size:13px;margin-bottom:16px;text-align:left}
+  .pframe{position:relative;width:230px;height:250px;margin:0 auto 12px;background:#ff7eb3;padding:5px;border-radius:16px;border:3px solid #222;box-shadow:5px 5px 0 #222}
+  .pframe img{width:100%;height:100%;object-fit:cover;border-radius:11px;display:block;background:#ffe4ec}
+  .num{position:absolute;top:8px;right:8px;background:#ffde59;border:2px solid #222;font-size:11px;font-weight:900;padding:2px 8px;border-radius:8px}
+  .cap{background:#e0f2fe;border:2px solid #222;padding:9px;border-radius:12px;font-size:13px;font-weight:700;margin-bottom:14px}
+  .obtn{display:block;width:100%;background:#f8f9fa;border:3px solid #222;box-shadow:3px 3px 0 #222;padding:10px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:800;margin-bottom:8px}
+  #q1:checked~.p10 label[for="q1"],#q2:checked~.p10 label[for="q2"],#q3:checked~.p10 label[for="q3"],#q4:checked~.p10 label[for="q4"]{background:#7bed9f}
+  .qres{display:none;background:#ffde59;border:2px solid #222;padding:8px;border-radius:10px;font-size:12.5px;font-weight:800;margin:10px 0}
+  #q1:checked~.p10 .qr1,#q2:checked~.p10 .qr2,#q3:checked~.p10 .qr3,#q4:checked~.p10 .qr4{display:block}
+  #t1:checked~.p11 label[for="t1"],#t2:checked~.p11 label[for="t2"],#t3:checked~.p11 label[for="t3"],#t4:checked~.p11 label[for="t4"]{background:#ff4b8b;color:#fff}
+  .res{display:none;background:#ffde59;border:2px dashed #222;font-size:12px;font-weight:900;padding:5px 10px;border-radius:10px;margin-bottom:10px}
+  #t1:checked~.p12 .r1,#t2:checked~.p12 .r2,#t3:checked~.p12 .r3,#t4:checked~.p12 .r4{display:inline-block}
+  .btn{display:inline-block;background:#ff4b8b;color:#fff;border:3px solid #222;box-shadow:4px 4px 0 #222;padding:10px 20px;font-size:14px;font-weight:900;border-radius:25px;cursor:pointer;margin-top:6px}
+  .no{background:#dfe4ea;color:#222;margin-left:8px}
+  #nochk:checked~.p1 .no{opacity:.2;transform:translate(25px,-15px) rotate(15deg)}
+  .nomsg{display:none;color:#ff2a70;font-size:12px;font-weight:900;margin-top:8px}
+  #nochk:checked~.p1 .nomsg{display:block}
+  .cert{border:4px solid #222;box-shadow:5px 5px 0 #222;background:#fffdf0;padding:14px 10px;border-radius:16px;margin-bottom:12px}
+  .cname{font-size:22px;font-weight:900;background:#ffde59;border:3px solid #222;padding:2px 14px;border-radius:12px;display:inline-block;margin:6px 0}
+  .ctext{font-size:12.5px;line-height:1.5;text-align:justify;margin-bottom:10px;font-weight:600}
+  .cfoot{display:flex;justify-content:space-between;border-top:2px dashed #222;padding-top:8px;font-size:11px;font-weight:bold}
+</style>
+</head>
+<body>
+
+<div class="mbar"><span>🎵 गाना:</span><audio controls loop src="song.mp3"></audio></div>
+
+<form class="card" autocomplete="off">
+  <input type="radio" name="pg" id="s1" class="r" checked>
+  <input type="radio" name="pg" id="s2" class="r">
+  <input type="radio" name="pg" id="s3" class="r">
+  <input type="radio" name="pg" id="s4" class="r">
+  <input type="radio" name="pg" id="s5" class="r">
+  <input type="radio" name="pg" id="s6" class="r">
+  <input type="radio" name="pg" id="s7" class="r">
+  <input type="radio" name="pg" id="s8" class="r">
+  <input type="radio" name="pg" id="s9" class="r">
+  <input type="radio" name="pg" id="s10" class="r">
+  <input type="radio" name="pg" id="s11" class="r">
+  <input type="radio" name="pg" id="s12" class="r">
+
+  <input type="checkbox" id="nochk" class="r">
+
+  <input type="radio" name="qz" id="q1" class="r">
+  <input type="radio" name="qz" id="q2" class="r">
+  <input type="radio" name="qz" id="q3" class="r">
+  <input type="radio" name="qz" id="q4" class="r">
+
+  <input type="radio" name="tr" id="t1" class="r" checked>
+  <input type="radio" name="tr" id="t2" class="r">
+  <input type="radio" name="tr" id="t3" class="r">
+  <input type="radio" name="tr" id="t4" class="r">
+
+  <div class="bar"><div class="fill"></div></div>
+
+  <div class="pg p1">
+    <div class="hero">👸🤪✨</div>
+    <h1>रुक जाओ Shristi! इमरजेंसी अलर्ट!</h1>
+    <p>आज <b>National Princess Day</b> है! क्या तुम मानती हो कि तुम दुनिया की सबसे क्रेजी, नौटंकीबाज और नंबर-1 बेस्ट फ्रेंड प्रिंसेस हो?</p>
+    <label for="s2" class="btn">हाँ, मैं ही हूँ! 💁‍♀️🔥</label>
+    <label for="nochk" class="btn no">नहीं 🙈</label>
+    <div class="nomsg">😜 हाहा! 'नहीं' वाला बटन टूट गया है! अब 'हाँ' ही दबाना पड़ेगा!</div>
+  </div>
+
+  <div class="pg p2">
+    <div class="hero">🤣💅👑</div>
+    <h1>शाबाश! सच बोलने के लिए धन्यवाद!</h1>
+    <p>वैसे भी 'नहीं' वाला बटन तुम्हारे दिमाग की तरह काम नहीं करता! बिना ताज के भी तुम्हारे नखरे किसी कार्टून विलेन से कम नहीं हैं।</p>
+    <div class="box"><b>📢 Shristi की गुप्त रिपोर्ट:</b><br>1. दुनिया की सबसे बड़ी गॉसिप क्वीन 🗣️<br>2. बिना बात के हंसने में गोल्ड मेडलिस्ट 😂<br>3. भूख लगते ही 'हल्क' बन जाती हैं! 🦖</div>
+    <label for="s3" class="btn">सबूत 1 देखें 📸➡️</label>
+  </div>
+
+  <div class="pg p3">
+    <h1>सबूत 1: मासूमियत का नाटक 🎭</h1>
+    <div class="pframe"><span class="num">1 / 7</span><img src="photo1.jpeg" onerror="this.onerror=null;this.src='photo1.jpg';"></div>
+    <div class="cap">😜 <b>पकड़ी गई!</b> जितनी शरीफ दिख रही हो ना Shristi, असल में उतनी ही बड़ी ड्रामा क्वीन हो!</div>
+    <label for="s4" class="btn">अगली फोटो (2/7) ➡️</label>
+  </div>
+
+  <div class="pg p4">
+    <h1>सबूत 2: 32 दाँतों वाली स्माइल 😁</h1>
+    <div class="pframe"><span class="num">2 / 7</span><img src="photo2.jpeg" onerror="this.onerror=null;this.src='photo2.jpg';"></div>
+    <div class="cap">😂 <b>हंसी की दुकान!</b> खुद के ही पकाऊ जोक्स पर सबसे तेज हंसने का रिकॉर्ड तुम्हारे नाम है!</div>
+    <label for="s5" class="btn">अगली फोटो (3/7) ➡️</label>
+  </div>
+
+  <div class="pg p5">
+    <h1>सबूत 3: फुल कार्टून स्वैग 😎</h1>
+    <div class="pframe"><span class="num">3 / 7</span><img src="photo3.jpeg" onerror="this.onerror=null;this.src='photo3.jpg';"></div>
+    <div class="cap">🔥 <b>फुल स्वैग!</b> हीरोइन वाला पोज़, पर हरकतें पूरी कार्टून नेटवर्क वाली!</div>
+    <label for="s6" class="btn">अगली फोटो (4/7) ➡️</label>
+  </div>
+
+  <div class="pg p6">
+    <h1>सबूत 4: भुक्कड़ मोड ऑन 🍕</h1>
+    <div class="pframe"><span class="num">4 / 7</span><img src="photo4.jpeg" onerror="this.onerror=null;this.src='photo4.jpg';"></div>
+    <div class="cap">🍔 <b>भुक्कड़ नंबर 1!</b> इस फोटो के तुरंत बाद पक्का कुछ खाने की डिमांड की होगी!</div>
+    <label for="s7" class="btn">अगली फोटो (5/7) ➡️</label>
+  </div>
+  <div class="pg p7">
+    <h1>सबूत 5: पंचायत की सरपंच 🗣️</h1>
+    <div class="pframe"><span class="num">5 / 7</span><img src="photo5.jpeg" onerror="this.onerror=null;this.src='photo5.jpg';"></div>
+    <div class="cap">🎙️ <b>गॉसिप क्वीन!</b> दुनिया भर की पंचायत करने में तुमसे आगे कोई नहीं निकल सकता Shristi!</div>
+    <label for="s8" class="btn">अगली फोटो (6/7) ➡️</label>
+  </div>
+
+  <div class="pg p8">
+    <h1>सबूत 6: कुंभकर्ण की बहन 😴</h1>
+    <div class="pframe"><span class="num">6 / 7</span><img src="photo6.jpeg" onerror="this.onerror=null;this.src='photo6.jpg';"></div>
+    <div class="cap">⏰ <b>अलार्म फेल!</b> इतनी फ्रेश तो तुम सिर्फ 12 घंटे लगातार सोने के बाद ही दिख सकती हो!</div>
+    <label for="s9" class="btn">आखिरी फोटो (7/7) ➡️</label>
+  </div>
+
+  <div class="pg p9">
+    <h1>सबूत 7: असली कार्टून प्रिंसेस 👑</h1>
+    <div class="pframe"><span class="num">7 / 7</span><img src="photo7.jpeg" onerror="this.onerror=null;this.src='photo7.jpg';"></div>
+    <div class="cap">💖 <b>Bestie No. 1!</b> 7 में से 7 नंबर! हमेशा ऐसे ही हंसती और पागलपंती करती रहना Shristi!</div>
+    <label for="s10" class="btn">मजेदार टेस्ट दें 🎯➡️</label>
+  </div>
+
+  <div class="pg p10">
+    <div class="hero">🕵️‍♀️🧐🎲</div>
+    <h1>प्रिंसेस Shristi का सच टेस्ट!</h1>
+    <p>तुम्हारी सबसे बड़ी सुपरपावर क्या है?</p>
+    <label for="q1" class="obtn">😴 कुंभकर्ण जैसी नींद</label>
+    <label for="q2" class="obtn">📱 24 घंटे रील्स देखना</label>
+    <label for="q3" class="obtn">🍕 हर वक्त भूख लगना</label>
+    <label for="q4" class="obtn">🗣️ नॉन-स्टॉप बकबक</label>
+    <div class="qres qr1">😂 सही पकड़े हैं! अलार्म भी तुमसे हार मान चुका है!</div>
+    <div class="qres qr2">📱 इंस्टाग्राम वालों को तुम्हें VIP यूजर का अवॉर्ड देना चाहिए!</div>
+    <div class="qres qr3">🍔 पेट है या ब्लैक होल? खाना देखते ही आंखें चमक जाती हैं!</div>
+    <div class="qres qr4">🎙️ रेडियो भी तुम्हारी स्पीड के आगे फेल है Shristi!</div>
+    <label for="s11" class="btn">अब इनाम चुनें 🎁➡️</label>
+  </div>
+
+  <div class="pg p11">
+    <div class="hero">🎁🍕🍫</div>
+    <h1>शाही पार्टी का ऑर्डर दें!</h1>
+    <p>सर्टिफिकेट के साथ कौन सी ट्रीट चाहिए?</p>
+    <label for="t1" class="obtn">🍫 डेयरी मिल्क सिल्क</label>
+    <label for="t2" class="obtn">🍨 आइसक्रीम पार्टी</label>
+    <label for="t3" class="obtn">🍕 चीज़ बर्स्ट पिज़्ज़ा</label>
+    <label for="t4" class="obtn">🥟 गोलगप्पे & मोमोज़</label>
+    <label for="s12" class="btn">सर्टिफिकेट लें 🏆✨</label>
+  </div>
+
+  <div class="pg p12">
+    <div class="cert">
+      <div style="font-size:24px">👑🎨🏆</div>
+      <div style="color:#ff2a70;font-weight:900;font-size:14px">CARTOON WORLD BESTIE AWARD</div>
+      <p style="font-size:11px;margin:2px 0">यह फरमान प्रमाणित करता है कि</p>
+      <div class="cname">Princess Shristi</div>
+      <div class="ctext">को आधिकारिक तौर पर <b>"दुनिया की सबसे क्रेजी, नौटंकीबाज और नंबर-1 बेस्ट फ्रेंड प्रिंसेस"</b> घोषित किया जाता है। अपनी कार्टून जैसी हरकतों और सच्ची दोस्ती निभाने के लिए इन्हें यह सम्मान दिया जाता है।</div>
+      <div class="res r1">🎟️ ट्रीट वाउचर: डेयरी मिल्क सिल्क</div>
+      <div class="res r2">🎟️ ट्रीट वाउचर: आइसक्रीम पार्टी</div>
+      <div class="res r3">🎟️ ट्रीट वाउचर: चीज़ बर्स्ट पिज़्ज़ा</div>
+      <div class="res r4">🎟️ ट्रीट वाउचर: गोलगप्पे & मोमोज़</div>
+      <div class="cfoot"><span><b>तारीख:</b> 18 नवंबर</span><span>🏅 VERIFIED</span><span><b>जारीकर्ता:</b> बेस्ट फ्रेंड</span></div>
+    </div>
+    <label for="s1" class="btn">फिर से मजे लें 🔄</label>
+  </div>
+</form>
+
+</body>
+</html>
